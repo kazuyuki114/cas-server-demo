@@ -1,7 +1,51 @@
-version: '3'
+version: '3.8'
+
 services:
   cas:
     build: .
+    container_name: cas-server
     ports:
-     - "8443:8443"
-     - "8080:8080"
+      - "8443:8443"
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+      - DB_HOST=cas-postgres
+      - DB_PORT=5432
+      - DB_NAME=cas_db
+      - DB_USER=cas_user
+      - DB_PASSWORD=cas_password
+    networks:
+      - cas-shared-network
+    volumes:
+      - ./etc/cas:/etc/cas
+      - ./logs:/var/log/cas
+    restart: unless-stopped
+    depends_on:
+      - db-health-check
+
+  # Health check service to ensure database is ready
+  db-health-check:
+    image: postgres:15-alpine
+    container_name: cas-db-health-check
+    networks:
+      - cas-shared-network
+    command: >
+      sh -c "
+        until pg_isready -h cas-postgres -p 5432 -U cas_user; do
+          echo 'Waiting for PostgreSQL to be ready...';
+          sleep 2;
+        done;
+        echo 'PostgreSQL is ready!';
+      "
+    depends_on:
+      - dummy
+
+  # Dummy service to ensure network exists
+  dummy:
+    image: hello-world
+    networks:
+      - cas-shared-network
+
+networks:
+  cas-shared-network:
+    external: true

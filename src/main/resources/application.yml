@@ -1,3 +1,37 @@
-# Application properties that need to be
-# embedded within the web application can be included here
+cas:
+  authn:
+    accept:
+      users: "casuser::Mellon"
+      name: "Static Credentials"
 
+  service-registry:
+    core:
+      init-from-json: true
+    json:
+      location: classpath:/services
+
+  server:
+    name: https://localhost:8443
+    prefix: https://localhost:8443/cas
+
+  webflow:
+    crypto:
+      enabled: false
+
+  tgc:
+    crypto:
+      enabled: false
+
+server:
+  port: 8443
+  ssl:
+    enabled: true
+    key-store: classpath:thekeystore
+    key-store-password: changeit
+    key-alias: cas
+
+logging:
+  level:
+    org.apereo.cas: DEBUG
+    org.springframework.jdbc: DEBUG
+    root: WARN

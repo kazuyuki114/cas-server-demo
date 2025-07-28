@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  cas-postgres:
+    image: postgres:15-alpine
+    container_name: cas-postgres
+    environment:
+      POSTGRES_DB: cas_db
+      POSTGRES_USER: cas_user
+      POSTGRES_PASSWORD: cas_password
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
