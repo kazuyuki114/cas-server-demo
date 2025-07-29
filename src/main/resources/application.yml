@@ -15,6 +15,11 @@ cas:
             type: BCRYPT
   jdbc:
     show-sql: true
+  service-registry:
+    core:
+      init-from-json: true
+    json:
+      location: classpath:/etc/cas/services
   server:
     name: https://localhost:8080
     prefix: https://localhost:8080/cas
