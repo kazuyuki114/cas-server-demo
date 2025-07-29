@@ -1,0 +1,10 @@
+{
+  "@class": "org.apereo.cas.services.CasRegisteredService",
+  "serviceId": "^http://localhost:9080/.*",
+  "name": "demo",
+  "id": 1001,
+  "description": "Spring Boot CAS Client Demo for testing - allows all localhost:8443 URLs",
+  "evaluationOrder": 1,
+  "logoutType": "BACK_CHANNEL",
+  "logoutUrl": "http://localhost:9080/logout"
+}

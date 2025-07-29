@@ -19,9 +19,9 @@ CREATE INDEX IF NOT EXISTS idx_users_enabled ON users(enabled);
 -- Password for 'admin' is 'admin123'
 -- Password for 'testuser' is 'password123'
 INSERT INTO users (username, password, email, enabled) VALUES
-                                                           ('admin', '$2a$10$8K1p/a0dURXvmv5c1wAemu.MvZq8QMI8F5U4I8G5z7WQ.SmNy', 'admin@example.com', true),
-                                                           ('testuser', '$2y$10$ohXwkzyCZ2U6B9/J7ZmU0egEm76tJnWKI3flHpYrY8J/h.W46DH2W', 'test@example.com', true),
-                                                           ('john.doe', '$2a$10$GRLdNijSQMUvl/au9ofL.eDwmoohzzS7.rmNSJZ.0FxO/BTk76klW', 'john.doe@example.com', true)
+                                                           ('admin', '$2a$10$DC7ioV/o6D5EKr9t7JTkPeA6cU4c80B/AJ.FkLJVhaoQE91JSBKcC', 'admin@example.com', true),
+                                                           ('testuser', '$2a$10$DC7ioV/o6D5EKr9t7JTkPeA6cU4c80B/AJ.FkLJVhaoQE91JSBKcC', 'test@example.com', true),
+                                                           ('john.doe', '$2a$10$DC7ioV/o6D5EKr9t7JTkPeA6cU4c80B/AJ.FkLJVhaoQE91JSBKcC', 'john.doe@example.com', true)
     ON CONFLICT (username) DO NOTHING;
 
 -- Create a table for user attributes (optional)
@@ -50,4 +50,4 @@ INSERT INTO user_attributes (username, attribute_name, attribute_value) VALUES
                                                                             ('john.doe', 'sn', 'Doe'),
                                                                             ('john.doe', 'mail', 'john.doe@example.com'),
                                                                             ('john.doe', 'department', 'Sales')
-    ON CONFLICT DO NOTHING;
+ON CONFLICT DO NOTHING;

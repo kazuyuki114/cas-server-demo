@@ -1,29 +1,32 @@
 cas:
   authn:
     accept:
-      users: "casuser::Mellon"
-      name: "Static Credentials"
-
-  service-registry:
-    core:
-      init-from-json: true
-    json:
-      location: classpath:/services
-
+      users: ""
+#      name: "Static Credentials"
+    jdbc:
+      query:
+        - driver-class: org.postgresql.Driver
+          url: jdbc:postgresql://localhost:5434/cas_db
+          user: cas_user
+          password: cas_password
+          sql: "SELECT password FROM users WHERE username = ? and enabled = true"
+          field-password: password
+          password-encoder:
+            type: BCRYPT
+  jdbc:
+    show-sql: true
   server:
-    name: https://localhost:8443
-    prefix: https://localhost:8443/cas
-
+    name: https://localhost:8080
+    prefix: https://localhost:8080/cas
   webflow:
     crypto:
       enabled: false
-
   tgc:
     crypto:
       enabled: false
 
 server:
-  port: 8443
+  port: 8080
   ssl:
     enabled: true
     key-store: classpath:thekeystore
@@ -32,6 +35,9 @@ server:
 
 logging:
   level:
-    org.apereo.cas: DEBUG
-    org.springframework.jdbc: DEBUG
+    org:
+      apereo:
+        cas: DEBUG
+      springframework:
+        jdbc: DEBUG
     root: WARN
