@@ -1,0 +1,17 @@
+{
+  "@class": "org.apereo.cas.services.CasRegisteredService",
+  "serviceId": "http://localhost:8081.*",
+  "name": "demo",
+  "id": 3003,
+  "description": "CAS Client Demo for testing",
+  "evaluationOrder": 1,
+  "accessStrategy": {
+    "@class": "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "ssoEnabled": true,
+    "enabled": true
+  },
+  "attributeReleasePolicy": {
+    "@class": "org.apereo.cas.services.ReturnAllAttributeReleasePolicy"
+  },
+  "responseType": "XML"
+}
