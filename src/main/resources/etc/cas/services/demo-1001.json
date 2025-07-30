@@ -3,8 +3,12 @@
   "serviceId": "^https://localhost:9446/.*",
   "name": "demo",
   "id": 1001,
-  "description": "Spring Boot CAS Client Demo for testing - allows all localhost:8443 URLs",
+  "description": "CAS Client Demo for testing",
   "evaluationOrder": 1,
   "logoutType": "BACK_CHANNEL",
-  "logoutUrl": "https://localhost:9446/logout"
+  "logoutUrl": "https://localhost:9446/logout",
+  "accessStrategy" : {
+    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "ssoEnabled" : true
+  }
 }

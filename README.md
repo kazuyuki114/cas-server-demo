@@ -371,3 +371,11 @@ When you are ready, you can run the actual recipe:
 This will run the selected recipes and apply the changes. This will write changes locally to your source files on disk.
 Afterward, review the changes, and when you are comfortable with the changes, commit them.
 The run goal generates warnings in the build log wherever it makes changes to source files.
+
+
+# Endpoints 
+The following Swagger endpoints may be used to analyze and test the APIs:
+|Description              |URL                 |    
+|:-----------------------:|:------------------:|
+|Swagger API Specification|/cas/v3/api-docs    | 
+|Swagger UI               |/cas/swagger-ui.html| 

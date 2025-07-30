@@ -1,12 +1,12 @@
 {
   "@class": "org.apereo.cas.services.CasRegisteredService",
-  "serviceId": "^https://localhost:9446/.*",
+  "serviceId": "^https://localhost:9447/.*",
   "name": "demo",
-  "id": 1001,
+  "id": 2002,
   "description": "CAS Client Demo for testing",
   "evaluationOrder": 1,
   "logoutType": "BACK_CHANNEL",
-  "logoutUrl": "https://localhost:9446/logout",
+  "logoutUrl": "https://localhost:9447/logout",
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
     "ssoEnabled" : true

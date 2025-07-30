@@ -2,7 +2,6 @@ cas:
   authn:
     accept:
       users: ""
-#      name: "Static Credentials"
     jdbc:
       query:
         - driver-class: org.postgresql.Driver
