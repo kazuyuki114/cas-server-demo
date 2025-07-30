@@ -3,7 +3,7 @@
   "serviceId": "^https://localhost:9447/.*",
   "name": "demo",
   "id": 2002,
-  "description": "CAS Client Demo for testing",
+  "description": "CAS Client 2 Demo for testing",
   "evaluationOrder": 1,
   "logoutType": "BACK_CHANNEL",
   "logoutUrl": "https://localhost:9447/logout",
