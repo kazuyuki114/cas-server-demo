@@ -30,6 +30,8 @@ CREATE TABLE IF NOT EXISTS user_attributes (
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
     );
 
+CREATE INDEX IF NOT EXISTS idx_user_attrs_username ON user_attributes(username);
+
 -- Insert sample attributes with groupMembership (used for roles)
 INSERT INTO user_attributes (username, attribute_name, attribute_value) VALUES
                                                                             ('admin', 'groupMembership', 'ADMIN'),

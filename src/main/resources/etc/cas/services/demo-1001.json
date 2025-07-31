@@ -11,9 +11,10 @@
     "@class": "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
     "enabled": true,
     "ssoEnabled": true,
+    "requireAllAttributes": false,
     "requiredAttributes": {
       "@class": "java.util.HashMap",
-      "groupMembership": [ "java.util.HashSet", [ "USER" ] ]
+      "groupMembership": [ "java.util.HashSet", [ "USER" , "ADMIN"] ]
     }
   },
   "attributeReleasePolicy" : {
