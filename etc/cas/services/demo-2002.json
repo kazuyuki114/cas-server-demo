@@ -9,6 +9,17 @@
   "logoutUrl": "https://localhost:9447/logout",
   "accessStrategy" : {
     "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
-    "ssoEnabled" : true
+    "ssoEnabled" : true,
+    "requiredAttributes" : {
+      "@class" : "java.util.HashMap",
+      "groupMembership": [ "java.util.HashSet", [ "ADMIN", "USER" ] ]
+    }
+  },
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnLinkedAttributeReleasePolicy",
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "groupMembership" : ["java.util.ArrayList", ["groupMembership"]]
+    }
   }
 }

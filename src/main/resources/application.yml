@@ -12,6 +12,20 @@ cas:
           field-password: password
           password-encoder:
             type: BCRYPT
+    attribute-repository:
+      jdbc:
+        - id: userattrs
+          order: 0
+          driver-class: org.postgresql.Driver
+          url: jdbc:postgresql://localhost:5434/cas_db
+          user: cas_user
+          password: cas_password
+          sql: "SELECT attribute_value as groupMembership FROM user_attributes WHERE username = ? AND attribute_name = 'groupMembership'"
+          username: username
+          attributes:
+            groupMembership: groupMembership
+          singleRow: true
+          requireAllAttributes: false
   jdbc:
     show-sql: true
   service-registry:

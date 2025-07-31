@@ -7,8 +7,20 @@
   "evaluationOrder": 1,
   "logoutType": "BACK_CHANNEL",
   "logoutUrl": "https://localhost:9447/logout",
-  "accessStrategy" : {
-    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
-    "ssoEnabled" : true
-  }
+  "accessStrategy": {
+    "@class": "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "enabled": true,
+    "ssoEnabled": true,
+    "requiredAttributes": {
+      "@class": "java.util.HashMap",
+      "groupMembership": [ "java.util.HashSet", [ "USER" ] ]
+    }
+  },
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnLinkedAttributeReleasePolicy",
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "groupMembership" : ["java.util.ArrayList", ["groupMembership"]]
+    }
+  },
 }

@@ -3,12 +3,24 @@
   "serviceId": "^https://localhost:9446/.*",
   "name": "demo",
   "id": 1001,
-  "description": "CAS Client 1 Demo for testing",
+  "description": "CAS Client 1 Demo",
   "evaluationOrder": 1,
   "logoutType": "BACK_CHANNEL",
   "logoutUrl": "https://localhost:9446/logout",
-  "accessStrategy" : {
-    "@class" : "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
-    "ssoEnabled" : true
+  "accessStrategy": {
+    "@class": "org.apereo.cas.services.DefaultRegisteredServiceAccessStrategy",
+    "enabled": true,
+    "ssoEnabled": true,
+    "requiredAttributes": {
+      "@class": "java.util.HashMap",
+      "groupMembership": [ "java.util.HashSet", [ "ADMIN", "USER" ] ]
+    }
+  },
+  "attributeReleasePolicy" : {
+    "@class" : "org.apereo.cas.services.ReturnLinkedAttributeReleasePolicy",
+    "allowedAttributes" : {
+      "@class" : "java.util.TreeMap",
+      "groupMembership" : ["java.util.ArrayList", ["groupMembership"]]
+    }
   }
 }
