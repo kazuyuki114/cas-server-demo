@@ -191,7 +191,7 @@ dependencies {
     implementation "org.apereo.cas:cas-server-support-json-service-registry"
     
     // PostgreSQL driver
-    implementation "org.postgresql:postgresql:42.7.3"
+    implementation "org.postgresql:postgresql:42.7.7"
 
     // Connection pooling
     implementation "com.zaxxer:HikariCP"
