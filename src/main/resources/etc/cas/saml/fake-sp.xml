@@ -1,0 +1,11 @@
+<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
+                  entityID="https://localhost:8081/fake-sp">
+    <SPSSODescriptor AuthnRequestsSigned="false"
+                     WantAssertionsSigned="false"
+                     protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+        <AssertionConsumerService
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                Location="http://localhost:8081/fake-sp/acs"
+                index="0" isDefault="true"/>
+    </SPSSODescriptor>
+</EntityDescriptor>

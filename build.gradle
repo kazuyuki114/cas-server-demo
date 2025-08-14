@@ -28,6 +28,10 @@ buildscript {
             url = "https://repo.spring.io/milestone"
             mavenContent { releasesOnly() }
         }
+        maven {
+            url "https://build.shibboleth.net/maven/releases/"
+            mavenContent { releasesOnly() }
+        }
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:${project.springBootVersion}"
@@ -202,6 +206,9 @@ dependencies {
 
     implementation "org.apereo.cas:cas-server-support-rest"
     implementation "org.apereo.cas:cas-server-support-swagger"
+    // implementation "org.apereo.cas:cas-server-support-account-mgmt"
+    implementation "org.apereo.cas:cas-server-support-oidc"
+    implementation "org.apereo.cas:cas-server-support-saml-idp"
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
 }

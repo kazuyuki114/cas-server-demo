@@ -1,0 +1,13 @@
+{
+  "@class": "org.apereo.cas.services.OidcRegisteredService",
+  "clientId": "client",
+  "clientSecret": "secret",
+  "serviceId": "^http://localhost:3000/simple-web-app/openid_connect_login.*",
+  "name": "sample",
+  "id": 1,
+  "bypassApprovalPrompt": true,
+  "description": "My client application",
+  "scopes": [ "java.util.HashSet", [ "openid", "profile", "email", "address", "phone" ] ],
+  "supportedGrantTypes": [ "java.util.HashSet", [ "authorization_code" ] ],
+  "supportedResponseTypes": [ "java.util.HashSet", [ "code" ] ]
+}

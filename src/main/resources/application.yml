@@ -26,6 +26,30 @@ cas:
             groupMembership: groupMembership
           singleRow: true
           requireAllAttributes: false
+    oidc:
+      core:
+        issuer: https://localhost:8080/cas/oidc
+      jwks:
+        file-system:
+          jwks-file: file:etc/cas/keystore.jwks
+    saml-idp:
+      core:
+        entity-id: https://localhost:8080/idp
+      metadata:
+        file-system:
+          location: file:etc/cas/saml
+  #  account-registration:
+#    core:
+#      security-questions-count: 0
+#      crypto:
+#        enabled: false
+#    mail:
+#      attribute-name: "email"
+#      from: "ieltsonlinetest67@gmail.com"
+#      subject: "Activate your account"
+#    provisioning:
+#      groovy:
+#        location: file:/etc/cas/scripts/register.groovy
   jdbc:
     show-sql: true
   service-registry:
@@ -59,3 +83,16 @@ logging:
       springframework:
         jdbc: DEBUG
     root: WARN
+
+#spring:
+#  mail:
+#    host: smtp.gmail.com
+#    port: 587
+#    username: ieltsonlinetest67@gmail.com
+#    password: ppzopbjeqwdkximo
+#    properties:
+#      mail:
+#        smtp:
+#          auth: true
+#          starttls:
+#            enable: true

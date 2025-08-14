@@ -1,0 +1,13 @@
+{
+  "@class": "org.apereo.cas.support.saml.services.SamlRegisteredService",
+  "serviceId": "https://localhost:8081/fake-sp",
+  "name": "sample",
+  "id": 2,
+
+  "metadataLocation": "file:/etc/cas/saml/fake-sp.xml",
+  "idpMetadataLocation": "file:/etc/cas/saml",
+
+  "signResponses": true,
+  "signAssertions": false,
+  "encryptAssertions": false
+}
