@@ -71,11 +71,6 @@
             </ds:KeyInfo>
         </KeyDescriptor>
 
-        <!--
-        <ArtifactResolutionService Binding="urn:oasis:names:tc:SAML:1.0:bindings:SOAP-binding"
-                                   Location="https://localhost:8080/cas/idp/profile/SAML1/SOAP/ArtifactResolution" index="1"/>
-        -->
-
         <SingleLogoutService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
                              Location="https://localhost:8080/cas/idp/profile/SAML2/POST/SLO"/>
 
