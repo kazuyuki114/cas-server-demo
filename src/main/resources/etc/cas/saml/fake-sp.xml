@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <md:EntityDescriptor xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata"
-                     entityID="https://localhost:8081/fake-sp">
+                     entityID="https://localhost:8081">
     <md:SPSSODescriptor AuthnRequestsSigned="false"
                         WantAssertionsSigned="true"
                         protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+
+        <!-- SSO ACS (already in your file) -->
         <md:AssertionConsumerService
                 Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
                 Location="http://localhost:8081/login/saml2/sso/cas"
                 index="0" isDefault="true"/>
+
+        <!-- Add these SLO endpoints -->
+        <md:SingleLogoutService
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
+                Location="http://localhost:8081/logout/"/>
+        <!-- or POST -->
+        <md:SingleLogoutService
+                Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
+                Location="http://localhost:8081/logout/"/>
     </md:SPSSODescriptor>
 </md:EntityDescriptor>

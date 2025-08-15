@@ -35,9 +35,23 @@ cas:
     saml-idp:
       core:
         entity-id: https://localhost:8080/idp
+        session-replication:
+          cookie:
+            crypto:
+              encryption:
+                key: nK8+w7b3x/q2a7L8Y9zC+W9Y0V6K7c6P7f5L0k6U4s3C+T4A5z6K7d8J9L0O8p4m6o5r6r6t5u7v8x9y0z1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s
+              signing:
+                key: nK8+w7b3x/q2a7L8Y9zC+W9Y0V6K7c6P7f5L0k6U4s3C+T4A5z6K7d8J9L0O8p4m6o5r6r6t5u7v8x9y0z1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s
+              alg: HS512
       metadata:
         file-system:
           location: file:etc/cas/saml
+        core:
+          cache-expiration: 86400
+          fail-fast: true
+      logout:
+        force-signed-logout-requests: false
+
   #  account-registration:
 #    core:
 #      security-questions-count: 0
